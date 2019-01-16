@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>SimpleToDoList</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/SimpleToDoList.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/ngStorage.min.js"></script>
+  <script type="text/javascript" src="js/SimpleToDoList.js"></script>
+</head>
+<body>
+  <h1>ToDo List</h1>
+  <div id="taskmain" ng-controller="mainCtrl">
+
+    <form class="addTaskForm" novalidate name="addTaskForm" ng-submit="newTask()">
+      <input class="taskNameForm" type="text" name="taskname" ng-model="newTaskBody" required ng-maxlength="20" taskname>
+      <input class="addTaskBtn" type="submit" value="追加" ng-disabled="addTaskForm.taskname.$invalid">
+      <div class="wordCount" ng-hide="addTaskForm.taskname.$error.maxlength">
+        <span>{{0 + newTaskBody.length}}</span><span> / 20</span>
+        <div ng-show="samename">※同名のタスクは追加できません</div>
+      </div>
+      <div class="wordCount" ng-show="addTaskForm.taskname.$error.maxlength"><span class="redWord">20文字まで</span>で入力してください</div>
+    </form>
+
+    <ui>
+      <li ng-repeat="task in tasks">
+        <span class="taskBody" ng-click="modalShow($index)">{{task.body}}</span>
+      </li>
+    </ui>
+
+    <div class="modalWrapper" ng-show="modalFlag">
+        <div class="modalArea">
+            <h1 class="modalTitle">{{thisTaskName}}<br>を削除しますか？</h1>
+            <p><button class="modalBtn" ng-click="deleteTask()" ng-disabled="modalShowing">削除</button><button class="modalBtn" ng-click="modalHide()">キャンセル</button></p>
+        </div>
+    </div>
+  </div>
+
+</body>
+</html>

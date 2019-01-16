@@ -1,0 +1,99 @@
+body {
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  margin: 0 auto;
+  text-align: center;
+}
+
+li {
+  list-style:none;
+}
+
+.addTaskForm {
+  margin: 20px;
+}
+
+.taskBody {
+  display: inline-block;
+  background: skyblue;
+  box-sizing: border-box;
+  width: 340px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.taskBody:hover {
+  opacity: 0.8;
+}
+
+.taskNameForm {
+  height: 26px;
+  width: 276px;
+  border-radius: 5px;
+  border: solid #000 1px;
+}
+
+.addTaskBtn {
+  padding: 3px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wordCount {
+  margin-top: 5px;
+  height: 30px;
+  line-height: 20px;
+}
+
+.redWord {
+  color: red;
+}
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.modalArea {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 150px;
+  border: outset #87ceeb;
+  border-radius: 10px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #f0f8ff;
+}
+
+.modalTitle {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.modalBtn {
+  width: 120px;
+  height: 40px;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  background: skyblue;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.modalBtn:hover {
+  opacity: 0.6;
+}
+.modalBtn + .modalBtn {
+  margin-left: 60px;
+}
